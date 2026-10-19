@@ -78,17 +78,14 @@ export const HeroSection: React.FC = () => {
       <div className="absolute top-1/3 right-1/4 w-[30rem] h-[30rem] bg-accent-cyan/15 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 left-1/3 w-[26rem] h-[26rem] bg-accent-purple/10 rounded-full blur-[180px] pointer-events-none" />
 
-      {/* ================= 3. FIXED VIDEO LAYER ================= */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-background flex items-center justify-end opacity-40 mix-blend-screen">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="h-screen w-auto max-w-none object-contain origin-right scale-95 md:scale-[0.98] lg:scale-100"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
+      {/* ================= 3. FIXED HERO BACKGROUND LAYER ================= */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-background flex items-center justify-end">
+        {/* Render hero image instead of missing video */}
+        <img
+          src={heroImg}
+          alt="Hero visual"
+          className="h-screen w-auto max-w-none object-contain object-right origin-right opacity-45 mix-blend-screen scale-95 md:scale-[0.98] lg:scale-100"
+        />
 
         {/* Seamless Soft Left Edge Blend */}
         <div className="absolute inset-y-0 left-0 w-3/5 bg-gradient-to-r from-background via-background/90 to-transparent pointer-events-none" />
@@ -177,7 +174,7 @@ export const HeroSection: React.FC = () => {
             animate="visible"
             className="max-w-xl lg:max-w-2xl xl:max-w-3xl pointer-events-auto z-20"
           >
-            {/* Status indicator: Pulsing green dot with text "Available for SWE Roles / Internships" */}
+            {/* Status indicator */}
             <motion.div variants={fadeUpVariants} className="mb-4">
               <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/30 backdrop-blur-md">
                 <span className="relative flex h-2 w-2">
@@ -190,7 +187,7 @@ export const HeroSection: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Main Title: "Tanshul Sharma" with large tracking-tight typography with white-to-slate gradient */}
+            {/* Main Title */}
             <motion.div variants={fadeUpVariants} className="relative mb-3 select-none">
               <h1
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] tracking-tight uppercase leading-[0.85]"
@@ -205,7 +202,7 @@ export const HeroSection: React.FC = () => {
               </h1>
             </motion.div>
 
-            {/* Subtitle: "Full-Stack Software Engineer & AI Systems Developer" */}
+            {/* Subtitle */}
             <motion.div variants={fadeUpVariants} className="mb-4">
               <p
                 className="text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-accent-cyan flex items-center flex-wrap gap-2"
@@ -213,11 +210,11 @@ export const HeroSection: React.FC = () => {
               >
                 <span>Full-Stack Software Engineer &amp; AI Systems Developer</span>
                 <span className="text-slate-600">•</span>
-                <span className="text-accent-blue">VIT Vellore '29</span>
+                <span className="text-accent-blue">VIT Vellore &apos;29</span>
               </p>
             </motion.div>
 
-            {/* Short Bio / Value Proposition */}
+            {/* Short Bio */}
             <motion.div
               variants={fadeUpVariants}
               className="text-xs sm:text-sm md:text-[14px] font-light text-slate-300 leading-[1.8] tracking-wide max-w-xl mb-6"
@@ -229,7 +226,7 @@ export const HeroSection: React.FC = () => {
               </p>
             </motion.div>
 
-            {/* 4 Key Metrics Badges in a glassmorphic container */}
+            {/* Metrics Badges */}
             <motion.div
               variants={fadeUpVariants}
               className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3.5 mb-8 rounded-xl border border-white/10 bg-surface/70 backdrop-blur-md shadow-[0_10px_35px_rgba(0,0,0,0.6)]"
@@ -246,13 +243,12 @@ export const HeroSection: React.FC = () => {
               ))}
             </motion.div>
 
-            {/* Actions: Button 1 & Button 2 */}
+            {/* Actions */}
             <motion.div
               variants={fadeUpVariants}
               className="flex flex-wrap items-center gap-4 sm:gap-6"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              {/* Button 1 (Primary): "Explore System Architectures" */}
               <motion.a
                 href="#projects"
                 onMouseEnter={() => setIsHovered(true)}
@@ -268,7 +264,6 @@ export const HeroSection: React.FC = () => {
                 </span>
               </motion.a>
 
-              {/* Button 2 (Secondary): "View GitHub (@Tanshul02)" */}
               <motion.a
                 href={PORTFOLIO.personal.github}
                 target="_blank"
