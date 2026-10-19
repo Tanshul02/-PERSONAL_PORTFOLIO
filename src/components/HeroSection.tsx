@@ -78,14 +78,17 @@ export const HeroSection: React.FC = () => {
       <div className="absolute top-1/3 right-1/4 w-[30rem] h-[30rem] bg-accent-cyan/15 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 left-1/3 w-[26rem] h-[26rem] bg-accent-purple/10 rounded-full blur-[180px] pointer-events-none" />
 
-      {/* ================= 3. FIXED HERO BACKGROUND LAYER ================= */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-background flex items-center justify-end">
-        {/* Render hero image instead of missing video */}
-        <img
-          src={heroImg}
-          alt="Hero visual"
-          className="h-screen w-auto max-w-none object-contain object-right origin-right opacity-45 mix-blend-screen scale-95 md:scale-[0.98] lg:scale-100"
-        />
+      {/* ================= 3. FIXED HERO VIDEO LAYER ================= */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-background flex items-center justify-end opacity-40 mix-blend-screen">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-screen w-auto max-w-none object-contain origin-right scale-95 md:scale-[0.98] lg:scale-100"
+        >
+          <source src={`${import.meta.env.BASE_URL}videos/hero.mp4`} type="video/mp4" />
+        </video>
 
         {/* Seamless Soft Left Edge Blend */}
         <div className="absolute inset-y-0 left-0 w-3/5 bg-gradient-to-r from-background via-background/90 to-transparent pointer-events-none" />
